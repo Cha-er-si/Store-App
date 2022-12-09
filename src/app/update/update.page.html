@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="chocolate">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Update Product </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="chocolate">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large"> Update Product </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="products" *ngIf="product">
+    <ion-item fill="outline">
+      <ion-label position="stacked">Product Name</ion-label>
+      <ion-input [(ngModel)]="product.product_name"></ion-input>
+    </ion-item>
+
+    <ion-item fill="outline">
+      <ion-label position="stacked">Price</ion-label>
+      <ion-input [(ngModel)]="product.product_price"></ion-input>
+    </ion-item>
+
+    <ion-item fill="outline">
+      <ion-label position="stacked">Bundle</ion-label>
+      <ion-input [(ngModel)]="product.product_bundle"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="buttons">
+    <ion-button expand="block" color="success" (click)="updateProduct()">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Update
+    </ion-button>
+
+    <ion-button expand="block" color="danger" (click)="deleteProduct()">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Delete
+    </ion-button>
+  </div>
+</ion-content>

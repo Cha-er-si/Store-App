@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="chocolate">
+    <ion-title> Products </ion-title>
+    <ion-button
+      color="light"
+      slot="end"
+      mode="md"
+      (click)="checkProductIfEmpty()"
+    >
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light-tint">
+  <ion-header [translucent]="true" collapse="condense">
+    <ion-toolbar color="chocolate">
+      <ion-title size="large" color="light"> Products </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="handleRefresh($event)"
+    [pullMin]="150"
+  >
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    ></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-searchbar
+    (ionChange)="filterList($event)"
+    (ionBlur)="onClearButton()"
+    (ionClear)="onClearButton()"
+  ></ion-searchbar>
+
+  <ion-list>
+    <ion-item class="products" *ngFor="let product of products">
+      <ion-grid>
+        <ion-row class="productDetails">
+          <ion-label class="productName"> {{product.product_name}} </ion-label>
+          <ion-row class="productPrice">
+            <ion-label> {{product.product_price}} php </ion-label>
+            <ion-label> {{product.product_bundle}} </ion-label>
+          </ion-row>
+        </ion-row>
+        <ion-row class="buttons">
+          <ion-button
+            expand="block"
+            [routerLink]="['/update/', product.id]"
+            color="chocolate"
+          >
+            <ion-icon name="create"></ion-icon>
+            Edit
+          </ion-button>
+          <ion-button expand="block" (click)="addToCart(product)">
+            <ion-icon name="cart"></ion-icon>
+            Add to Cart
+          </ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-list>
+    <ion-item class="products" *ngFor="let product of products">
+      <ion-col>
+        <ion-col lines="none" class="productDetails">
+          <ion-label class="productName"> {{product.product_name}} </ion-label>
+          <ion-content class="productPrice">
+            <ion-label> {{product.product_price}} php </ion-label>
+            <ion-label> {{product.product_bundle}} </ion-label>
+          </ion-content>
+        </ion-col>
+        <ion-col lines="none">
+          <ion-button
+            expand="block"
+            [routerLink]="['/update/', product.id]"
+            color="chocolate"
+          >
+            <ion-icon name="create"></ion-icon>
+            Edit
+          </ion-button>
+          <ion-button expand="block" [routerLink]="['/cart/']">
+            <ion-icon name="cart"></ion-icon>
+            Add to Cart
+          </ion-button>
+        </ion-col>
+      </ion-col>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="chocolate" (click)="addProduct()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
