@@ -2,7 +2,9 @@
   "name": "store-app",
   "integrations": {
     "cordova": {},
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    }
   },
   "type": "angular"
 }

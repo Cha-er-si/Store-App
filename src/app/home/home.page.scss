@@ -67,7 +67,10 @@ ion-button {
       width: 35%;
     }
     ion-button:nth-child(2) {
-      width: 55%;
+      width: 56%;
+    }
+    ion-button:nth-child(3) {
+      width: 100%;
     }
   }
 }

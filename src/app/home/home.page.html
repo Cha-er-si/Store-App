@@ -61,6 +61,14 @@
             <ion-icon name="cart"></ion-icon>
             Add to Cart
           </ion-button>
+          <ion-button
+            color="tertiary"
+            expand="block"
+            (click)="generateQRCode(product)"
+          >
+            <ion-icon name="qr-code"></ion-icon>
+            Generate QR Code
+          </ion-button>
         </ion-row>
       </ion-grid>
     </ion-item>
@@ -97,6 +105,11 @@
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="chocolate" (click)="addProduct()">
       <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="tertiary" (click)="scanQR()">
+      <ion-icon name="scan"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
