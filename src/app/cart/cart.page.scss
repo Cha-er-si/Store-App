@@ -1,7 +1,13 @@
 .total-price {
   font-weight: bold;
 
+  ion-label {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   span {
+    padding-left: 10px;
     color: var(--ion-color-success);
   }
 }

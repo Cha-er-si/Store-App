@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QrCodeGenerateService } from '../services/qr-code-generate.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { QrCodeGenerateService } from '../services/qr-code-generate.service';
   styleUrls: ['./qr-code.page.scss'],
 })
 export class QrCodePage implements OnInit {
-  dataString!: string;
+  @Input() dataString!: string;
 
   constructor(private qrcodeStringService: QrCodeGenerateService) {
     this.dataString = this.qrcodeStringService.getString();

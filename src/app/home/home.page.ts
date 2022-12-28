@@ -52,7 +52,7 @@ export class HomePage {
     const modal = await this.modalController.create({
       component: QrCodePage,
       componentProps: { dataString: product.id },
-      breakpoints: [0, 0.5, 0.1],
+      breakpoints: [0, 0.7, 0.1],
       initialBreakpoint: 0.7,
     });
     await modal.present();
@@ -66,12 +66,12 @@ export class HomePage {
         this.productService
           .getProductById(String(barcodeData.text))
           .subscribe((res) => {
-            console.log(res);
+            // console.log(res);
             this.productFromQR = res;
           });
 
-        // this.addToCart(this.productFromQR);
-        console.log(this.productFromQR);
+        this.addToCart(this.productFromQR);
+        // console.log(this.productFromQR);
       })
       .catch((err: any) => {
         console.log('Error', err);
