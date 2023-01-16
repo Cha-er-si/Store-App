@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../Interface/product-interface';
+import { ProductService } from '../services/product.service';
 import { QrCodeGenerateService } from '../services/qr-code-generate.service';
 
 @Component({
@@ -8,10 +10,22 @@ import { QrCodeGenerateService } from '../services/qr-code-generate.service';
 })
 export class QrCodePage implements OnInit {
   dataString!: string;
+  product!: Product;
 
-  constructor(private qrcodeStringService: QrCodeGenerateService) {
+  constructor(
+    private qrcodeStringService: QrCodeGenerateService,
+    private productService: ProductService
+  ) {
     this.dataString = this.qrcodeStringService.getString();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.product);
+    console.log(this.dataString);
+
+    this.productService.getProductById(this.dataString).subscribe((res) => {
+      this.product = res;
+      console.log(res);
+    });
+  }
 }

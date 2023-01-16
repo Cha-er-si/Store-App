@@ -12,4 +12,9 @@
       [errorCorrectionLevel]="'M'"
     ></qrcode>
   </ion-card>
+  <div class="product_name" *ngIf="product">
+    <!-- <ion-item *ngFor="let prod in product"> -->
+    <ion-title>{{product.product_name}}</ion-title>
+    <!-- </ion-item> -->
+  </div>
 </ion-content>
