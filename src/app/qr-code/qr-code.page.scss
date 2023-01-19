@@ -1,0 +1,24 @@
+.product_name {
+  display: flex;
+  // justify-content: center;
+  // align-content: center;
+  width: 100%;
+  text-align: center;
+
+  .productname {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    text-transform: uppercase;
+  }
+}
+#canvasElement {
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.qrbutton {
+  margin: 10px 30px;
+}
