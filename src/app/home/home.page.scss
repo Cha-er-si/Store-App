@@ -45,8 +45,8 @@ ion-button {
   .productDetails {
     margin-bottom: 10px;
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 
   // .productName {
@@ -55,26 +55,34 @@ ion-button {
 
   .productPrice {
     color: var(--ion-color-success);
+    justify-content: end;
+    margin-right: 10px;
 
     ion-label:nth-child(1) {
       margin-right: 5px;
     }
   }
 
-  .buttons {
-    width: 100%;
-    ion-button:nth-child(1) {
-      width: 35%;
-    }
-    ion-button:nth-child(2) {
-      width: 56%;
-    }
-    ion-button:nth-child(3) {
-      width: 100%;
-    }
-  }
+  // .buttons {
+  //   max-width: 100%;
+  //   display: inline-grid;
+  //   grid-template-columns: 50% 50%;
+  // }
 }
 
 ion-fab-button {
   --background: #d2691e;
+}
+
+@media only screen and (min-width: 320px) {
+  .buttons {
+    display: grid;
+    grid-template-columns: minmax(90px, auto) minmax(194px, auto);
+
+    .qr_button {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
 }

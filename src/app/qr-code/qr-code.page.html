@@ -4,17 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-button class="qrbutton" (click)="downloadQR()">Download QR</ion-button>
 <ion-content>
-  <ion-card class="ion-text-center add-padding">
-    <qrcode
-      [qrdata]="dataString"
-      [width]="256"
-      [errorCorrectionLevel]="'M'"
-    ></qrcode>
-  </ion-card>
-  <div class="product_name" *ngIf="product">
-    <!-- <ion-item *ngFor="let prod in product"> -->
-    <ion-title>{{product.product_name}}</ion-title>
-    <!-- </ion-item> -->
+  <div id="canvasElement" #canvasElement>
+    <ion-card class="ion-text-center add-padding">
+      <qrcode
+        [qrdata]="dataString"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"
+      ></qrcode>
+    </ion-card>
+    <div class="product_name" *ngIf="product">
+      <!-- <ion-item *ngFor="let prod in product"> -->
+      <h2 class="productname">{{product.product_name}}</h2>
+      <!-- </ion-item> -->
+    </div>
   </div>
 </ion-content>

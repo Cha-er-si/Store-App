@@ -53,11 +53,16 @@
             expand="block"
             [routerLink]="['/update/', product.id]"
             color="chocolate"
+            class="edit_button"
           >
             <ion-icon name="create"></ion-icon>
             Edit
           </ion-button>
-          <ion-button expand="block" (click)="addToCart(product)">
+          <ion-button
+            expand="block"
+            (click)="addToCart(product)"
+            class="addtocart_button"
+          >
             <ion-icon name="cart"></ion-icon>
             Add to Cart
           </ion-button>
@@ -65,6 +70,7 @@
             color="tertiary"
             expand="block"
             (click)="generateQRCode(product)"
+            class="qr_button"
           >
             <ion-icon name="qr-code"></ion-icon>
             Generate QR Code
